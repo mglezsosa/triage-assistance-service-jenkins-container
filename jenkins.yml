@@ -1,0 +1,36 @@
+jenkins:
+  agentProtocols:
+    - "JNLP4-connect"
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+      - id: sosa
+        password: ${adminpw:-passw0rd}
+  authorizationStrategy:
+    globalMatrix:
+      grantedPermissions:
+        - "Overall/Read:anonymous"
+        - "Job/Read:anonymous"
+        - "View/Read:anonymous"
+        - "Overall/Administer:authenticated"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  remotingSecurity:
+    enabled: true
+
+tool:
+  git:
+    installations:
+      - name: Default
+        home: "git"
+
+security:
+  remotingCLI:
+    enabled: false
+
+unclassified:
+  location:
+    url: http://127.0.0.1:8081
+    adminAddress: sosa@uma.es

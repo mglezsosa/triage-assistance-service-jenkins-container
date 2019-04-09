@@ -1,0 +1,1 @@
+# Jenkins container for the CI of the [triage assistance service](https://github.com/mglezsosa/triage-assistance-service) development

@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  jenkins: 
+    build:
+      context: .
+    ports: 
+      - 8081:8080
+      - 50000:50000
+    volumes:
+      - ./jenkins_host:/var/jenkins_home
+      - ./jenkins.yml:/var/jenkins_home/jenkins.yml
+    secrets:
+      - adminpw
+    environment:
+      - CASC_JENKINS_CONFIG=/var/jenkins_home/jenkins.yml #Use a github repo. Be aware that the raw content is cached, so it can take a couple of mintues to take effect
+
+secrets:
+  adminpw:
+    file: ./secrets/adminpw
+
+volumes:
+  jenkins_home:
