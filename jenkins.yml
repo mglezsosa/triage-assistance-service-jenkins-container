@@ -5,7 +5,7 @@ jenkins:
     local:
       allowsSignup: false
       users:
-      - id: sosa
+      - id: admin
         password: ${adminpw:-passw0rd}
   authorizationStrategy:
     globalMatrix:
